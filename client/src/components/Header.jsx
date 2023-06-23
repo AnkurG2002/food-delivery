@@ -1,8 +1,58 @@
 import foody from "../assets/images/foody.png";
 import cartIcon from "../assets/icons/cart.svg";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Button } from "./elements/Button";
+import { useEffect, useState } from "react";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "../firebase";
 
 function Header({ cartCount }) {
+  const navigate = useNavigate();
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [authUser, setAuthUser] = useState(null);
+
+  const handleLogout = () => {
+    // sessionStorage.removeItem("Auth token");
+    // sessionStorage.removeItem("User Id");
+    // window.dispatchEvent(new Event("storage"));
+    signOut(auth)
+      .then(() => {
+        console.log("signed out");
+      })
+      .catch((error) => console.log(error));
+    navigate("/");
+  };
+
+  useEffect(() => {
+    // const checkAuthToken = () => {
+    //   const token = sessionStorage.getItem("Auth token");
+    //   if (token) {
+    //     setIsLoggedIn(true);
+    //   } else {
+    //     setIsLoggedIn(false);
+    //   }
+    // };
+
+    // window.addEventListener("storage", checkAuthToken);
+
+    // return () => {
+    //   window.removeEventListener("storage", checkAuthToken);
+    // };
+
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthUser(user);
+      } else {
+        setAuthUser(null);
+      }
+    });
+
+    return () => {
+      listen();
+    };
+  }, []);
+
   return (
     <nav id="header" className="bg-slate-800 text-white">
       <div className="container w-full mx-auto flex max-md:flex-col items-center justify-between mt-0 py-2">
@@ -31,8 +81,27 @@ function Header({ cartCount }) {
               </div>
             )}
           </Link>
-          <Link to="/login">Log In</Link>
-          <Link to="/register">Sign Up</Link>
+
+          {/* {isLoggedIn ? (
+            <Button onClick={handleLogout}>Log Out</Button>
+          ) : (
+            <>
+              <Link to="/login">Log In</Link>
+              <Link to="/register">Sign Up</Link>
+            </>
+          )} */}
+
+          {authUser ? (
+            <div>
+              <span className="mr-4">{authUser.email}</span>
+              <Button onClick={handleLogout}>Log Out</Button>
+            </div>
+          ) : (
+            <>
+              <Link to="/login">Log In</Link>
+              <Link to="/register">Sign Up</Link>
+            </>
+          )}
         </div>
       </div>
     </nav>

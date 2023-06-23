@@ -30,7 +30,7 @@ app.use(
 );
 
 app.use("/api/", productRoute);
-app.use("/api/", userRoute);
+app.use("/", userRoute);
 
 app.get("/", (req, res) => {
   res.json({
