@@ -38,8 +38,10 @@ const Register = () => {
         }
       });
 
+    // dev -> http"//localhost:5000/
+    // prod -> https://food-delivery-9flg.onrender.com/
     await axios
-      .post("http://localhost:5000/register", {
+      .post("https://food-delivery-9flg.onrender.com/register", {
         name: data.name,
         email: data.email,
         password: data.password,

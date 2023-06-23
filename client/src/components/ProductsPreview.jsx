@@ -33,10 +33,13 @@ function ProductsPreview() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/products")
+      .get("https://food-delivery-9flg.onrender.com/api/products")
       .then((response) => setProducts(response.data?.data))
       .catch((err) => console.log(err));
   }, []);
+
+  // dev -> http"//localhost:5000/
+  // prod -> https://food-delivery-9flg.onrender.com/
 
   const onAddProduct = (product) => {
     dispatch(addToCart(product));

@@ -27,8 +27,10 @@ export const { getProducts } = productsSlice.actions;
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
+    // dev -> http"//localhost:5000/
+    // prod -> https://food-delivery-9flg.onrender.com/
     const response = await axios.get(
-      "http://localhost:5000/api/products-by-categories"
+      "https://food-delivery-9flg.onrender.com/api/products-by-categories"
     );
     return response.data;
   }

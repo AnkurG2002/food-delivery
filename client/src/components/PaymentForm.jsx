@@ -38,9 +38,15 @@ const PaymentForm = () => {
     try {
       const {
         data: { clientSecret },
-      } = await axios.post("http://localhost:5000/create-payment-intent", {
-        orderItems: cart,
-      });
+      } = await axios.post(
+        "https://food-delivery-9flg.onrender.com/create-payment-intent",
+        {
+          orderItems: cart,
+        }
+      );
+
+      // dev -> http"//localhost:5000/
+      // prod -> https://food-delivery-9flg.onrender.com/
 
       const { error: stripeError, paymentIntent } =
         await stripe.confirmCardPayment(clientSecret, {
