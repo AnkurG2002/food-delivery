@@ -74,7 +74,7 @@ app.post("/create-payment-intent", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 8080;
+const PORT = 5000;
 app.listen(PORT, (err) => {
   if (err) {
     console.log("Error in running the server", err);
