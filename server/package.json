@@ -19,6 +19,9 @@
     "mongoose": "^7.3.0",
     "stripe": "^12.9.0"
   },
+  "engines": {
+    "node": ">=14.20.1"
+  },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2"
   }
