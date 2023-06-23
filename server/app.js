@@ -5,7 +5,7 @@ import cors from "cors";
 import productRoute from "./routes/productRoute.js";
 import userRoute from "./routes/userRoute.js";
 
-config({ path: "./config/.env" });
+config({ path: "./.env" });
 
 export const app = express();
 
