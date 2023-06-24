@@ -2,9 +2,12 @@ import aboutImg from "../assets/images/about-image.png";
 
 function About() {
   return (
-    <div className="bg-white flex max-lg:flex-col justify-center items-center p-24 max-md:p-12">
+    <div
+      id="about"
+      className="bg-white flex max-lg:flex-col justify-center items-center p-24 max-md:p-12"
+    >
       <div className="lg:w-[50%] lg:mr-4 max-lg:mb-6">
-        <h2 className="text-2xl font-medium">About Us</h2>
+        <h2 className="text-2xl font-bold">About Us</h2>
         <div className="text-lg">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe eos
           iusto quibusdam repudiandae magnam praesentium soluta unde, accusamus

@@ -68,9 +68,9 @@ function Header({ cartCount }) {
           <Link to="/" className="text-xl border-r pr-8">
             Home
           </Link>
-          <Link to="#about" className="text-xl">
+          <a href="#about" className="text-xl">
             About
-          </Link>
+          </a>
         </div>
         <div className="flex items-center justify-center space-x-4 max-md:my-6">
           <Link to="/cart" className="mr-4 relative">

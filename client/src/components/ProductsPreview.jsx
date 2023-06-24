@@ -7,6 +7,7 @@ import "react-multi-carousel/lib/styles.css";
 
 import { useDispatch } from "react-redux";
 import { addToCart } from "../stores/cart/cartSlice";
+import { url } from "../App";
 
 function ProductsPreview() {
   const [products, setProducts] = useState([]);
@@ -33,20 +34,20 @@ function ProductsPreview() {
 
   useEffect(() => {
     axios
-      .get("https://food-delivery-9flg.onrender.com/api/products")
+      .get(`${url}/api/products`)
       .then((response) => setProducts(response.data?.data))
       .catch((err) => console.log(err));
   }, []);
-
-  // dev -> http"//localhost:5000/
-  // prod -> https://food-delivery-9flg.onrender.com/
 
   const onAddProduct = (product) => {
     dispatch(addToCart(product));
   };
 
   return (
-    <div className="container text-white text-center mx-auto my-8 w-2/3">
+    <div
+      id="prods"
+      className="container text-white text-center mx-auto my-8 w-2/3"
+    >
       <Carousel
         swipeable={true}
         draggable={false}

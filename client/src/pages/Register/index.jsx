@@ -8,6 +8,7 @@ import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import axios from "axios";
+import { url } from "../../App";
 
 const Register = () => {
   let navigate = useNavigate();
@@ -38,10 +39,8 @@ const Register = () => {
         }
       });
 
-    // dev -> http"//localhost:5000/
-    // prod -> https://food-delivery-9flg.onrender.com/
     await axios
-      .post("https://food-delivery-9flg.onrender.com/register", {
+      .post(`${url}/register`, {
         name: data.name,
         email: data.email,
         password: data.password,

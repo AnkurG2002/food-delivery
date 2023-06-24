@@ -14,6 +14,7 @@ import { Button } from "./elements/Button";
 import { cartProducts, clearCart } from "../stores/cart/cartSlice";
 import { clearAddress, getAddress } from "../stores/userInfo/addressSlice";
 import axios from "axios";
+import { url } from "../App";
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
@@ -38,15 +39,9 @@ const PaymentForm = () => {
     try {
       const {
         data: { clientSecret },
-      } = await axios.post(
-        "https://food-delivery-9flg.onrender.com/create-payment-intent",
-        {
-          orderItems: cart,
-        }
-      );
-
-      // dev -> http"//localhost:5000/
-      // prod -> https://food-delivery-9flg.onrender.com/
+      } = await axios.post(`${url}/create-payment-intent`, {
+        orderItems: cart,
+      });
 
       const { error: stripeError, paymentIntent } =
         await stripe.confirmCardPayment(clientSecret, {
