@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import bannerImg from "../assets/images/pizza_banner.png";
 import { Button } from "./elements/Button";
 
@@ -13,12 +14,12 @@ function Banner() {
           <Button>
             <a href="#prods">Order Now</a>
           </Button>
-          <a
-            href="/menu"
+          <Link
+            to="/menu"
             className="text-yellow-400 hover:text-yellow-500 font-bold px-3"
           >
             See Menu
-          </a>
+          </Link>
         </div>
       </div>
       <div className="banner-image w-full md:w-1/2 p-3 flex justify-end">

@@ -68,7 +68,7 @@ function Header({ cartCount }) {
           <Link to="/" className="text-xl border-r pr-8">
             Home
           </Link>
-          <a href="#about" className="text-xl">
+          <a href="/#about" className="text-xl">
             About
           </a>
         </div>
