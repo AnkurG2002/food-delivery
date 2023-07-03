@@ -37,3 +37,13 @@
   max-height: 109px;
   line-height: 1.26;
 }
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.tospin {
+  animation: spin 12s alternate infinite;
+}

@@ -8,17 +8,21 @@ function About() {
     >
       <div className="lg:w-[50%] lg:mr-4 max-lg:mb-6">
         <h2 className="text-2xl font-bold">About Us</h2>
-        <div className="text-lg">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe eos
-          iusto quibusdam repudiandae magnam praesentium soluta unde, accusamus
-          animi exercitationem nam. Voluptatum vel illum delectus unde itaque
-          numquam dignissimos alias dolor quisquam facere debitis expedita
-          perspiciatis officia cum accusantium architecto, distinctio esse hic
-          in sapiente earum nemo error. Neque, quia!
+        <div className="text-lg mt-2 lg:mr-6">
+          Welcome to our food ordering website, where convenience meets culinary
+          delight! We have created a user-friendly platform that connects you
+          with a plethora of restaurants, bringing the flavors you crave right
+          to your doorstep. With a seamless ordering process, personalized
+          recommendations, and a secure payment gateway, we aim to provide you
+          with a delightful and hassle-free food ordering experience.
         </div>
       </div>
       <div className="w-[500px] max-sm:w-[300px]">
-        <img src={aboutImg} alt="about" className="rounded-3xl" />
+        <img
+          src={aboutImg}
+          alt="about"
+          className="rounded-3xl hover:opacity-70"
+        />
       </div>
     </div>
   );
